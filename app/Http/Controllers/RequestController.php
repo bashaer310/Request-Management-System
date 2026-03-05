@@ -64,7 +64,7 @@ class RequestController extends Controller
         ]);
 
         return redirect()->route('requests.index')
-            ->with('success', 'request created');
+            ->with('success', 'تم إنشاء الطلب');
     }
 
 
@@ -79,11 +79,11 @@ class RequestController extends Controller
 
         Notification::create([
             'user_id' => $request->created_by,
-            'message' => "request approved: \"{$request->title}\"",
+            'message' => "الطلب موافق: \"{$request->title}\"",
         ]);
 
         return redirect()->route('requests.index')
-            ->with('success', 'approve request is done');
+            ->with('success', 'موافقة الطلب تمت بنجاح');
     }
 
 
@@ -98,10 +98,10 @@ class RequestController extends Controller
 
         Notification::create([
             'user_id' => $request->created_by,
-            'message' => "request rejectd: \"{$request->title}\"",
+            'message' => "الطلب مرفوض: \"{$request->title}\"",
         ]);
 
         return redirect()->route('requests.index')
-            ->with('success', 'reject request is done');
+            ->with('success', 'تم رفض الطلب بنجاح');
     }
 }
