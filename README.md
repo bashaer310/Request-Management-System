@@ -1,11 +1,11 @@
-# Transaction Management System
+# Request Management System
 
 This is a web application for **an internal request management system**, built with Laravel and MySQL. The system enables organizations to efficiently create, track, and approve requests, including role-based approvals and real-time notifications. It includes core features like **user authentication**, **request management**, and **API access**.
 
 ## Features
 
 - **User Management**:
-  - **User Registration** - users can create accounts 
+  - **User Registration** - users can create an accounts
   - **Authentication & Authorization** - users can login with role-based access
   - **Profile Management** - users can view and update their profile
  
@@ -17,7 +17,7 @@ This is a web application for **an internal request management system**, built w
   - **Notifications** - Users receive notifications upon request approval or rejection
 
 - **API Access**
-  - **Get API Endpoint** – Authorized users can fetch requests
+  - **Get API Endpoint** - Authorized users can fetch requests
  
 ## Technologies Used
 
@@ -45,3 +45,59 @@ This is a web application for **an internal request management system**, built w
     - XAMPP - Local development environment 
     - Laravel Artisan - Command-line tool for Laravel
  
+## Getting Started
+
+1. Clone the repository:
+```bash
+   git clone https://github.com/bashaer310/request-management-system
+```
+
+2. Navigate to the project folder:
+```bash
+   cd request-management-system
+```
+
+3. Install dependencies:
+
+Make sure Composer and and Node.js are installed, then run:
+```bash
+   composer install
+   npm install
+   npm run bild
+```
+4. Configure Environment
+
+- Copy the environment file:
+```bash
+   cp .env.example .env
+```
+
+- Open the .env file and update the database configuration:
+```bash
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=db_name
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+```
+Ensure your database server (MySQL) is running and the database exists.
+
+5. Generate application key
+```bash
+   php artisan key:generate
+```
+
+6. Run migrations
+```bash
+   php artisan migrate --seed
+```
+
+7. Run the application
+```bash
+   php artisan serve
+```
+
+8. Test the application and api
+- The application will be available at: http://localhost:8000
+- The api will be available at: http://localhost:8000/api
