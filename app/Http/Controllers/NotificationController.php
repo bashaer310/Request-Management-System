@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Notification;
 use App\Enums\UserRole;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
 {
@@ -12,7 +13,7 @@ class NotificationController extends Controller
 
     public function index()
     {
-        $notifications = Notification::where('user_id', auth()->id)
+        $notifications = Notification::where('user_id', Auth::id())
             ->latest()
             ->paginate(20);
 

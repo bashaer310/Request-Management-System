@@ -7,6 +7,8 @@ use App\Models\Notification;
 use App\Enums\UserRole;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use App\Enums\RequestStatus;
+use Illuminate\Support\Facades\Auth;
 
 class RequestController extends Controller
 {
@@ -14,7 +16,7 @@ class RequestController extends Controller
 
     public function index()
     {
-        $user = auth()->user();
+        $user = Auth::user();
 
         if ($user->role === UserRole::MANAGER) {
             $requests = Request::where('status', 'pending')
@@ -57,8 +59,8 @@ class RequestController extends Controller
         Request::create([
             'title' => $validated['title'],
             'description' => $validated['description'],
-            'status' => 'pending',
-            'created_by' => auth()->id(),
+            'status' => RequestStatus::PENDING,
+            'created_by' => Auth::id(),
         ]);
 
         return redirect()->route('requests.index')
@@ -71,8 +73,8 @@ class RequestController extends Controller
         $this->authorize('approve', $request);
 
         $request->update([
-            'status' => 'approved',
-            'approved_by' => auth()->id(),
+            'status' =>  RequestStatus::APPROVED,
+            'approved_by' => Auth::id(),
         ]);
 
         Notification::create([
@@ -90,8 +92,8 @@ class RequestController extends Controller
         $this->authorize('reject', $request);
 
         $request->update([
-            'status' => 'rejected',
-            'approved_by' => auth()->id(),
+            'status' => RequestStatus::REJECTED,
+            'approved_by' => Auth::id(),
         ]);
 
         Notification::create([

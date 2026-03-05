@@ -24,12 +24,12 @@ class RequestPolicy
 
     public function approve(User $user, Request $request): bool
     {
-        return $user->role === UserRole::MANAGER && $request->status == 'pending';
+        return $user->role === UserRole::MANAGER && $request->status == RequestStatus::PENDING;
     }
 
     public function reject(User $user, Request $request): bool
     {
-        return $user->role === UserRole::MANAGER && $request->status == 'pending';
+        return $user->role === UserRole::MANAGER && $request->status == RequestStatus::PENDING;
     }
 }
 
