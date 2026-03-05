@@ -2,6 +2,11 @@
 
 This is a web application for **an internal request management system**, built with Laravel and MySQL. The system enables organizations to efficiently create, track, and approve requests, including role-based approvals and real-time notifications. It includes core features like **user authentication**, **request management**, and **API access**.
 
+## Live Demo
+
+https://github.com/user-attachments/assets/0cd193aa-05da-4138-9147-b64177854563
+
+
 ## Features
 
 - **User Management**:
