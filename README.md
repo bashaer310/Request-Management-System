@@ -10,12 +10,12 @@ https://github.com/user-attachments/assets/0cd193aa-05da-4138-9147-b64177854563
 ## Features
 
 - **User Management**:
-  - **User Registration** - users can create an accounts
+  - **User Registration** - users can create an account
   - **Authentication & Authorization** - users can login with role-based access
   - **Profile Management** - users can view and update their profile
  
 - **Request Management**:
-  - **Create Request** - Users can submit requests
+  - **Request Creation** - Users can submit requests
   - **Request listing** - users can retrieve their own requests
   - **Request Details** - users can view request details
   - **Request Status Management** - Managers can approve or reject requests
